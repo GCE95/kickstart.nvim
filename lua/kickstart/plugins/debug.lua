@@ -4,7 +4,7 @@ return {
 		dependencies = {
 			'rcarriga/nvim-dap-ui',
 
-			"theHamsta/nvim-dap-virtual-text",
+			'theHamsta/nvim-dap-virtual-text',
 			'williamboman/mason.nvim',
 			'jay-babu/mason-nvim-dap.nvim',
 
@@ -41,6 +41,7 @@ return {
 			vim.keymap.set('n', '<leader>di', dap.step_into, { desc = 'Debug: Step Into' })
 			vim.keymap.set('n', '<leader>do', dap.step_over, { desc = 'Debug: Step Over' })
 			vim.keymap.set('n', '<leader>dO', dap.step_out, { desc = 'Debug: Step Out' })
+			vim.keymap.set('n', '<leader>de', dapui.eval, { desc = '[D]ebug [E]val' })
 			vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
 			vim.keymap.set('n', '<leader>B', function()
 				dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
@@ -78,7 +79,7 @@ return {
 			-- Install golang specific config
 			require('dap-go').setup()
 			-- Install python specific config
-			require('dap-python').setup("./venv/bin/python")
+			require('dap-python').setup './venv/bin/python'
 		end,
 	},
 }
