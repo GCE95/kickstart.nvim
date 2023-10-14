@@ -97,7 +97,6 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
     'catppuccin/nvim',
     priority = 1000,
     config = function()
