@@ -1,3 +1,4 @@
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -257,17 +258,18 @@ local function find_git_root()
   local current_dir
   local cwd = vim.fn.getcwd()
   -- If the buffer is not associated with a file, return nil
-  if current_file == '' then
+
+  if current_file == "" then
     current_dir = cwd
   else
     -- Extract the directory from the current file's path
-    current_dir = vim.fn.fnamemodify(current_file, ':h')
+    current_dir = vim.fn.fnamemodify(current_file, ":h")
   end
 
   -- Find the Git root directory from the current file's path
-  local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
+  local git_root = vim.fn.systemlist("git -C " .. vim.fn.escape(current_dir, " ") .. " rev-parse --show-toplevel")[1]
   if vim.v.shell_error ~= 0 then
-    print 'Not a git repository. Searching on current working directory'
+    print("Not a git repository. Searching on current working directory")
     return cwd
   end
   return git_root
@@ -277,9 +279,10 @@ end
 local function live_grep_git_root()
   local git_root = find_git_root()
   if git_root then
-    require('telescope.builtin').live_grep {
-      search_dirs = { git_root },
-    }
+
+    require('telescope.builtin').live_grep({
+      search_dirs = {git_root},
+    })
   end
 end
 
@@ -379,6 +382,7 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
 
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
@@ -529,6 +533,7 @@ cmp.setup {
   },
   completion = {
     completeopt = 'menu,menuone,noinsert',
+
   },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
