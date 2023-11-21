@@ -8,6 +8,9 @@ vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>cf', '<cmd>lua vim.lsp.buf.format {async=true}<CR>', { desc = 'Code Format' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u', '<C-u>zz')
+-- Better indent
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
 -- Plugins
 vim.keymap.set('n', '<leader>e', '<cmd>Neotree reveal toggle<CR>', { desc = 'Neotree Toggle' })
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<CR>')
@@ -17,14 +20,13 @@ vim.keymap.set('n', '<leader>cc', '<cmd>Telescope colorscheme<CR>', { desc = 'Co
 vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<CR>', { desc = '[G]it [S]tatus' })
 vim.keymap.set('n', '<leader>gd', '<cmd>Telescope git_commits<CR>', { desc = '[G]it [C]ommits' })
 
-
 -- Splits
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
-vim.keymap.set("n", "<leader>]", "<cmd>vertical resize +10<CR>", { desc = "Increase Window Width" })
-vim.keymap.set("n", "<leader>[", "<cmd>vertical resize -10<CR>", { desc = "Decrease Window Width" })
+vim.keymap.set('n', '<leader>]', '<cmd>vertical resize +10<CR>', { desc = 'Increase Window Width' })
+vim.keymap.set('n', '<leader>[', '<cmd>vertical resize -10<CR>', { desc = 'Decrease Window Width' })
 
 -- Window
 vim.keymap.set('n', '<leader>ww', '<C-W>p', { desc = 'Other window' })
