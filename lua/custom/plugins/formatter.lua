@@ -1,27 +1,23 @@
 return {
-  {
-    'nvimtools/none-ls.nvim',
-    event = 'VeryLazy',
-    dependencies = { 'mason.nvim' },
-    opts = function()
-      local nls = require 'null-ls'
-      return {
-        root_dir = require('null-ls.utils').root_pattern('.null-ls-root', '.neoconf.json', 'Makefile', '.git'),
-        sources = {
-          nls.builtins.formatting.fish_indent,
-          nls.builtins.diagnostics.fish,
-          nls.builtins.formatting.stylua,
-          nls.builtins.formatting.shfmt,
-          nls.builtins.formatting.prettierd,
-          nls.builtins.formatting.goimports,
-          nls.builtins.formatting.gofmt,
-          nls.builtins.formatting.black,
-          nls.builtins.formatting.isort,
-        },
-      }
-    end,
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-context',
-  },
+	{
+		'stevearc/conform.nvim',
+		opts = {},
+		config = function()
+			require('conform').setup {
+				format_on_save = {
+					-- These options will be passed to conform.format()
+					timeout_ms = 500,
+					lsp_fallback = true,
+				},
+				formatters_by_ft = {
+					lua = { 'stylua' },
+					-- Conform will run multiple formatters sequentially
+					python = { 'ruff_format' },
+					markdown = { 'prettier' },
+					-- Use a sub-list to run only the first available formatter
+					javascript = { { 'prettierd', 'prettier' } },
+				},
+			}
+		end,
+	},
 }
