@@ -535,6 +535,8 @@ cmp.setup {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif require('copilot.suggestion').is_visible() then
+        require('copilot.suggestion').accept()
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       else
