@@ -34,6 +34,7 @@ return {
 				},
 			}
 			require('nvim-dap-virtual-text').setup()
+			require('dap.ext.vscode').load_launchjs()
 
 			-- Basic debugging keymaps, feel free to change to your liking!
 			vim.keymap.set('n', '<leader>dc', dap.continue, { desc = 'Debug: Start/Continue' })
