@@ -14,6 +14,7 @@ return {
 					-- Conform will run multiple formatters sequentially
 					python = { 'ruff_format' },
 					markdown = { 'prettier' },
+					json = { { 'ruff_format', 'prettier' } },
 					-- Use a sub-list to run only the first available formatter
 					javascript = { { 'prettierd', 'prettier' } },
 				},

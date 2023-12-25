@@ -99,12 +99,18 @@ require('lazy').setup({
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
+    dependencies = {
+      'AndreM222/copilot-lualine',
+    },
     opts = {
       options = {
         icons_enabled = true,
         theme = 'auto',
         component_separators = '|',
         section_separators = '',
+      },
+      sections = {
+        lualine_x = { 'copilot', 'encoding', 'fileformat', 'filetype' },
       },
     },
   },
@@ -535,6 +541,8 @@ cmp.setup {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif require('copilot.suggestion').is_visible() then
+        require('copilot.suggestion').accept()
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       else
