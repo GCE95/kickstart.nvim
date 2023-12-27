@@ -9,10 +9,11 @@ return {
 	},
 	config = function()
 		require('neotest').setup {
-			require 'neotest-python' {
-				dap = { justMyCode = false },
+			adapters = {
+				-- stylua: ignore
+				require "neotest-python",
+				require 'neotest-go',
 			},
-			require 'neotest-go',
 		}
 	end,
 	-- stylua: ignore

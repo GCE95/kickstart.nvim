@@ -15,6 +15,7 @@ return {
 					python = { 'ruff_format' },
 					markdown = { 'prettier' },
 					json = { { 'ruff_format', 'prettier' } },
+					go = { 'gofmt' },
 					-- Use a sub-list to run only the first available formatter
 					javascript = { { 'prettierd', 'prettier' } },
 				},
