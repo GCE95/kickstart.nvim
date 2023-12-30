@@ -12,12 +12,11 @@ return {
 				formatters_by_ft = {
 					lua = { 'stylua' },
 					-- Conform will run multiple formatters sequentially
-					python = { 'ruff_format' },
-					markdown = { 'prettier' },
-					json = { { 'ruff_format', 'prettier' } },
+					python = { 'ruff_format', 'isort' },
+					markdown = { 'prettierd' },
 					go = { 'gofmt' },
-					-- Use a sub-list to run only the first available formatter
-					javascript = { { 'prettierd', 'prettier' } },
+					json = { 'prettierd' },
+					javascript = { 'prettierd' },
 				},
 			}
 		end,
