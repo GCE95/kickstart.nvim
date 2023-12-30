@@ -170,12 +170,16 @@ require('lazy').setup({ -- Git related plugins
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
+    dependencies = {'AndreM222/copilot-lualine'},
     opts = {
         options = {
             icons_enabled = true,
             theme = 'auto',
             component_separators = '|',
             section_separators = ''
+        },
+        sections = {
+            lualine_x = {'copilot', 'encoding', 'fileformat', 'filetype'}
         }
     }
 }, {
@@ -695,13 +699,14 @@ cmp.setup {
             luasnip.lsp_expand(args.body)
         end
     },
+    preselect = cmp.PreselectMode.None,
     completion = {
         completeopt = 'noselect'
     },
     mapping = cmp.mapping.preset.insert {
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete {},
         ['<CR>'] = cmp.mapping.confirm {
@@ -711,6 +716,8 @@ cmp.setup {
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
+            elseif require('copilot.suggestion').is_visible() then
+                require('copilot.suggestion').accept()
             elseif luasnip.expand_or_locally_jumpable() then
                 luasnip.expand_or_jump()
             else

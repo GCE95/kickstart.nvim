@@ -34,6 +34,7 @@ return {
 				},
 			}
 			require('nvim-dap-virtual-text').setup()
+			require('dap.ext.vscode').load_launchjs()
 
 			-- Basic debugging keymaps, feel free to change to your liking!
 			vim.keymap.set('n', '<leader>dc', dap.continue, { desc = 'Debug: Start/Continue' })
@@ -80,6 +81,10 @@ return {
 			require('dap-go').setup()
 			-- Install python specific config
 			require('dap-python').setup './venv/bin/python'
+			-- stylua: ignore
+			vim.keymap.set('n', '<leader>dPt', ':lua require("dap-python").test_method()<CR>',
+				{ desc = 'Debug: Test Method' })
+			vim.keymap.set('n', '<leader>dGt', ':lua require("dap-go").debug_test()<CR>', { desc = 'Debug: Test Method' })
 		end,
 	},
 }

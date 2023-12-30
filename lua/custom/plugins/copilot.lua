@@ -5,21 +5,28 @@ return {
 		build = ':Copilot auth',
 		event = 'InsertEnter',
 		config = function()
-			require('copilot').setup()
-		end,
-		opts = {
-			suggestion = { enabled = false },
-			panel = { enabled = false },
-			filetypes = {
-				markdown = true,
-				help = true,
-			},
-		},
-	},
-	{
-		'zbirenbaum/copilot-cmp',
-		config = function()
-			require('copilot_cmp').setup()
+			require('copilot').setup {
+				panel = {
+					enabled = true,
+					auto_refresh = true,
+				},
+				suggestion = {
+					enabled = true,
+					auto_trigger = true,
+					accept = false, -- disable built-in keymapping
+				},
+			}
+
+			local cmp_status_ok, cmp = pcall(require, 'cmp')
+			if cmp_status_ok then
+				cmp.event:on('menu_opened', function()
+					vim.b.copilot_suggestion_hidden = true
+				end)
+
+				cmp.event:on('menu_closed', function()
+					vim.b.copilot_suggestion_hidden = false
+				end)
+			end
 		end,
 	},
 }

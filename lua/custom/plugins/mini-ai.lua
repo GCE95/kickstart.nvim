@@ -1,12 +1,16 @@
 return {
-	-- Everything related to mini ai
+	{
+		'windwp/nvim-autopairs',
+		event = 'InsertEnter',
+		opts = {},
+	},
 	{
 		'echasnovski/mini.nvim',
 		version = false,
 		event = 'VeryLazy',
 		config = function()
 			require('mini.cursorword').setup()
-			require('mini.pairs').setup()
+			-- require('mini.pairs').setup()
 			require('mini.ai').setup()
 			require('mini.comment').setup()
 		end,
