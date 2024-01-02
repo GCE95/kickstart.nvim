@@ -9,8 +9,8 @@ return {
 			'jay-babu/mason-nvim-dap.nvim',
 
 			-- Add your own debuggers here
-			'leoluz/nvim-dap-go',
 			'mfussenegger/nvim-dap-python',
+			'leoluz/nvim-dap-go',
 		},
 		config = function()
 			local dap = require 'dap'
@@ -34,7 +34,7 @@ return {
 				},
 			}
 			require('nvim-dap-virtual-text').setup()
-			require('dap.ext.vscode').load_launchjs()
+			-- require('dap.ext.vscode').load_launchjs()
 
 			-- Basic debugging keymaps, feel free to change to your liking!
 			vim.keymap.set('n', '<leader>dc', dap.continue, { desc = 'Debug: Start/Continue' })
@@ -78,7 +78,30 @@ return {
 			dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
 			-- Install golang specific config
-			require('dap-go').setup()
+			require('dap-go').setup {
+				dap_configurations = {
+					{
+						type = 'go',
+						name = 'MNS L_Dev',
+						request = 'launch',
+						mode = 'debug',
+						env = {
+							STAGE_NAME = 'localdev',
+						},
+						program = '${fileDirname}',
+					},
+					{
+						type = 'go',
+						name = 'MNS L_Prod',
+						request = 'launch',
+						mode = 'debug',
+						env = {
+							STAGE_NAME = 'localprod',
+						},
+						program = '${fileDirname}',
+					},
+				},
+			}
 			-- Install python specific config
 			require('dap-python').setup './venv/bin/python'
 			-- stylua: ignore
