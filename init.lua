@@ -205,7 +205,19 @@ require('lazy').setup({ -- Git related plugins
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = 'ibl',
-    opts = {},
+    opts = {
+      exclude = {
+        filetypes = {
+          'dashboard',
+          'NvimTree',
+          'Outline',
+          'TelescopePrompt',
+          'TelescopeResults',
+          'Trouble',
+        },
+      },
+    },
+    event = 'BufEnter',
   }, -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',

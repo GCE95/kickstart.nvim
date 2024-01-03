@@ -1,4 +1,5 @@
 return {
+
 	'goolord/alpha-nvim',
 	dependencies = { 'MaximilianLloyd/ascii.nvim' },
 	event = 'VimEnter',
@@ -37,7 +38,7 @@ return {
 		end
 
 		require('alpha').setup(dashboard.opts)
-
+		--
 		vim.api.nvim_create_autocmd('User', {
 			pattern = 'LazyVimStarted',
 			callback = function()
