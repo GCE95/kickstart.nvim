@@ -409,9 +409,6 @@ end, {
   desc = '[/] Fuzzily search in current buffer',
 })
 
-vim.keymap.set('n', '<leader>ff', require('telescope.builtin').git_files, {
-  desc = '[F]ind Git [F]iles',
-})
 local function telescope_live_grep_open_files()
   require('telescope.builtin').live_grep {
     grep_open_files = true,
@@ -475,6 +472,7 @@ vim.defer_fn(function()
         node_decremental = '<M-space>',
       },
     },
+
     textobjects = {
       select = {
         enable = true,

@@ -32,4 +32,16 @@ return {
 	{
 		'nvim-treesitter/nvim-treesitter-context',
 	},
+	{
+		'LunarVim/bigfile.nvim',
+		config = function()
+			require('bigfile').setup {
+				size_limit = 1000000,
+				features = { -- features to disable
+					'indent_blankline',
+					'treesitter',
+				},
+			}
+		end,
+	},
 }
