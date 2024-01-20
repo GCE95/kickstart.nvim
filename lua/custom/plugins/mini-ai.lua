@@ -33,15 +33,13 @@ return {
 		'nvim-treesitter/nvim-treesitter-context',
 	},
 	{
-		'LunarVim/bigfile.nvim',
-		config = function()
-			require('bigfile').setup {
-				size_limit = 1000000,
-				features = { -- features to disable
-					'indent_blankline',
-					'treesitter',
-				},
-			}
-		end,
+		'nvim-pack/nvim-spectre',
+		build = false,
+		cmd = 'Spectre',
+		opts = { open_cmd = 'noswapfile vnew' },
+		-- stylua: ignore
+		keys = {
+			{ "<leader>fr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+		},
 	},
 }

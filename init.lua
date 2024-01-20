@@ -697,6 +697,13 @@ local servers = {
       -- diagnostics = { disable = { 'missing-fields' } },
     },
   },
+  jsonls = {
+    json = {
+      format = {
+        enable = false,
+      },
+    },
+  },
 }
 
 -- Setup neovim lua configuration
