@@ -12,7 +12,7 @@ return {
 				formatters_by_ft = {
 					lua = { 'stylua' },
 					-- Conform will run multiple formatters sequentially
-					python = { 'ruff_format', 'isort' },
+					python = { 'ruff_format' },
 					markdown = { 'prettierd' },
 					go = { 'gofmt' },
 					json = { 'prettierd' },

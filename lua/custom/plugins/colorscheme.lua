@@ -1,13 +1,12 @@
 return {
 	{ 'navarasu/onedark.nvim' },
-	{ 'sainnhe/gruvbox-material' },
+	{ 'sainnhe/everforest' },
 	{
 		'catppuccin/nvim',
 		priority = 1000,
 		config = function()
-			vim.g.gruvbox_material_background = 'hard'
-			vim.g.gruvbox_material_foreground = 'mix'
-			vim.cmd.colorscheme 'onedark'
+			vim.g.everforest_backgroun = 'hard'
+			vim.cmd.colorscheme 'catppuccin'
 		end,
 	},
 }
