@@ -19,6 +19,10 @@ vim.keymap.set('n', '<leader>cc', '<cmd>Telescope colorscheme<CR>', { desc = 'Co
 -- Telescope
 vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<CR>', { desc = '[G]it [S]tatus' })
 vim.keymap.set('n', '<leader>gd', '<cmd>Telescope git_commits<CR>', { desc = '[G]it [C]ommits' })
+vim.keymap.set('n', '<leader>gl', '<cmd>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>',
+	{ desc = 'Git Worktree' })
+vim.keymap.set('n', '<leader>ga', '<cmd>lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>',
+	{ desc = 'Create Git Worktree' })
 
 -- Splits
 vim.keymap.set('n', '<C-h>', '<C-w>h')

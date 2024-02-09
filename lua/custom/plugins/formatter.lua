@@ -14,8 +14,8 @@ return {
 					-- Conform will run multiple formatters sequentially
 					python = { 'ruff_format' },
 					markdown = { 'prettierd' },
-					go = { 'gofmt' },
-					json = { 'prettierd' },
+					go = { 'gofumpt', 'goimports' },
+					json = { 'prettier' },
 					javascript = { 'prettierd' },
 				},
 			}
