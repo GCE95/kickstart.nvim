@@ -47,6 +47,9 @@ return {
 			vim.keymap.set('n', '<leader>B', function()
 				dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
 			end, { desc = 'Debug: Set Breakpoint' })
+			vim.keymap.set('n', '<leader>dl', function()
+				require('dap.ext.vscode').load_launchjs()
+			end, { desc = 'Load VSCode Launch' })
 
 			-- Dap UI setup
 			-- For more information, see |:help nvim-dap-ui|
@@ -103,7 +106,7 @@ return {
 				},
 			}
 			-- Install python specific config
-			require('dap-python').setup './venv/bin/python'
+			require('dap-python').setup 'python'
 			-- stylua: ignore
 			vim.keymap.set('n', '<leader>dPt', ':lua require("dap-python").test_method()<CR>',
 				{ desc = 'Debug: Test Method' })
