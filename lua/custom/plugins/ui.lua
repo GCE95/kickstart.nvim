@@ -82,4 +82,45 @@ return {
 			},
 		},
 	},
+
+	{
+		'echasnovski/mini.bufremove',
+		event = 'VeryLazy',
+		-- stylua: ignore
+		keys = {
+			{ "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
+			{
+				"<leader>bD",
+				function() require("mini.bufremove").delete(0, true) end,
+				desc =
+				"Delete Buffer (Force)"
+			},
+		},
+	},
+
+	-- Trouble + TODO
+	{
+		'folke/todo-comments.nvim',
+		dependencies = { 'nvim-lua/plenary.nvim' },
+		event = 'VeryLazy',
+		config = true,
+		keys = {
+			{ '<leader>xt', '<cmd>TodoTrouble<cr>',   'Show Trouble' },
+			{ '<leader>st', '<cmd>TodoTelescope<cr>', 'Show TODOs' },
+		},
+	},
+	{
+		'folke/trouble.nvim',
+		config = true,
+		event = 'VeryLazy',
+	},
+	{
+		'iamcco/markdown-preview.nvim',
+		cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+		build = 'cd app && npm install',
+		init = function()
+			vim.g.mkdp_filetypes = { 'markdown' }
+		end,
+		ft = { 'markdown' },
+	},
 }
