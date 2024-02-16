@@ -7,7 +7,7 @@ return {
 		priority = 1000,
 		config = function()
 			vim.g.everforest_backgroun = 'hard'
-			vim.cmd.colorscheme 'catppuccin-macchiato'
+			vim.cmd.colorscheme 'catppuccin'
 		end,
 	},
 

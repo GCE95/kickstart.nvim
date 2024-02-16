@@ -11,7 +11,7 @@ return {
 		require('neotest').setup {
 			adapters = {
 				-- stylua: ignore
-				require "neotest-python",
+				require("neotest-python"),
 				require 'neotest-go',
 			},
 		}

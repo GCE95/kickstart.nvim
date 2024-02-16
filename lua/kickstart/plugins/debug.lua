@@ -1,9 +1,11 @@
 return {
 	{
 		'mfussenegger/nvim-dap',
+		event = 'VeryLazy',
 		dependencies = {
 			'rcarriga/nvim-dap-ui',
 
+			'nvim-telescope/telescope-dap.nvim',
 			'theHamsta/nvim-dap-virtual-text',
 			'williamboman/mason.nvim',
 			'jay-babu/mason-nvim-dap.nvim',
@@ -107,6 +109,7 @@ return {
 			}
 			-- Install python specific config
 			require('dap-python').setup 'python'
+			require('telescope').load_extension 'dap'
 			-- stylua: ignore
 			vim.keymap.set('n', '<leader>dPt', ':lua require("dap-python").test_method()<CR>',
 				{ desc = 'Debug: Test Method' })
