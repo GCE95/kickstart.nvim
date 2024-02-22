@@ -2,12 +2,13 @@ return {
 
 	-- colorscheme
 	{ 'navarasu/onedark.nvim' },
+	{ 'tiagovla/tokyodark.nvim' },
 	{
 		'catppuccin/nvim',
 		priority = 1000,
 		config = function()
 			vim.g.everforest_backgroun = 'hard'
-			vim.cmd.colorscheme 'catppuccin'
+			vim.cmd.colorscheme 'tokyodark'
 		end,
 	},
 

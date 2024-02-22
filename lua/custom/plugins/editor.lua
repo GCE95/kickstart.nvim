@@ -36,7 +36,7 @@ return {
 					python = { 'ruff_format' },
 					markdown = { 'prettierd' },
 					go = { 'gofumpt', 'goimports' },
-					json = { 'prettier' },
+					-- json = { 'prettier' },
 					javascript = { 'prettierd' },
 				},
 			}
@@ -76,6 +76,8 @@ return {
 			require('mini.cursorword').setup()
 			require('mini.ai').setup()
 			require('mini.comment').setup()
+			require('mini.surround').setup()
+			-- require('mini.statusline').setup()
 		end,
 	},
 	{

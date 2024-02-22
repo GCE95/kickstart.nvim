@@ -21,12 +21,14 @@ vim.opt.rtp:prepend(lazypath)
 --
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
-require('lazy').setup({ -- Git related plugins
+require('lazy').setup({
+  -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+    event = 'VeryLazy',
     dependencies = { -- Automatically install LSPs to stdpath for neovim
       {
         'williamboman/mason.nvim',
@@ -60,7 +62,7 @@ require('lazy').setup({ -- Git related plugins
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
-      -- current_line_blame = true,
+      current_line_blame = true,
       -- See `:help gitsigns.txt`
       signs = {
         add = {
@@ -196,7 +198,17 @@ require('lazy').setup({ -- Git related plugins
         section_separators = '',
       },
       sections = {
-        lualine_x = { 'copilot', 'encoding', 'fileformat', 'filetype' },
+        lualine_x = {
+          { 'copilot', 'encoding', 'fileformat', 'filetype' },
+          {
+            function()
+              return '  ' .. require('dap').status()
+            end,
+            cond = function()
+              return package.loaded['dap'] and require('dap').status() ~= ''
+            end,
+          },
+        },
       },
     },
   },
