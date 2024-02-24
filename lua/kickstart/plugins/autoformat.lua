@@ -58,7 +58,7 @@ return {
 								context = { only = { 'source.organizeImports' } },
 								apply = true,
 							}
-							vim.wait(100)
+							-- vim.wait(100)
 						end,
 					})
 				end
