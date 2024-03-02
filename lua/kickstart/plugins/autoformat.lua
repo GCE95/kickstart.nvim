@@ -50,6 +50,10 @@ return {
 					return
 				end
 
+				if client.name == 'jsonls' then
+					return
+				end
+
 				if client.name == 'ruff_lsp' then
 					vim.api.nvim_create_autocmd('BufWritePre', {
 						buffer = buffer,
