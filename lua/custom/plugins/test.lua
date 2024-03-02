@@ -11,7 +11,7 @@ return {
 		require('neotest').setup {
 			adapters = {
 				-- stylua: ignore
-				require "neotest-python",
+				require("neotest-python"),
 				require 'neotest-go',
 			},
 		}
@@ -19,6 +19,7 @@ return {
 	-- stylua: ignore
 	keys = {
 		{ "<leader>tt", function() require("neotest").run.run(vim.fn.expand("%")) end,                      desc = "Run File" },
+		{ "<leader>tw", function() require("neotest").watch.watch() end,                                    desc = "Watch me file" },
 		{ "<leader>tT", function() require("neotest").run.run(vim.loop.cwd()) end,                          desc = "Run All Test Files" },
 		{ "<leader>tr", function() require("neotest").run.run() end,                                        desc = "Run Nearest" },
 		{ "<leader>ts", function() require("neotest").summary.toggle() end,                                 desc = "Toggle Summary" },

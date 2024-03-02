@@ -16,9 +16,17 @@ vim.keymap.set('n', '<leader>e', '<cmd>Neotree reveal toggle<CR>', { desc = 'Neo
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<CR>')
 vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit all' })
 vim.keymap.set('n', '<leader>cc', '<cmd>Telescope colorscheme<CR>', { desc = 'Colorscheme' })
+vim.keymap.set('n', '<leader>ut', '<cmd>UndotreeToggle<CR>', { desc = 'Undo Tree' })
+vim.keymap.set('n', '<leader>cp', '<cmd>Gitsigns preview_hunk<CR>', { desc = 'Git Preview Hunk' })
+vim.keymap.set('n', '<leader>cn', '<cmd>Gitsigns next_hunk<CR>', { desc = 'Git Next Hunk' })
+vim.keymap.set('n', '<leader>cl', '<cmd>Gitsigns prev_hunk<CR>', { desc = 'Git Previous Hunk' })
 -- Telescope
 vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<CR>', { desc = '[G]it [S]tatus' })
 vim.keymap.set('n', '<leader>gd', '<cmd>Telescope git_commits<CR>', { desc = '[G]it [C]ommits' })
+vim.keymap.set('n', '<leader>gl', '<cmd>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>',
+	{ desc = 'Git Worktree' })
+vim.keymap.set('n', '<leader>ga', '<cmd>lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>',
+	{ desc = 'Create Git Worktree' })
 
 -- Splits
 vim.keymap.set('n', '<C-h>', '<C-w>h')
