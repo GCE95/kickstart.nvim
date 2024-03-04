@@ -7,6 +7,7 @@ return {
       'theHamsta/nvim-dap-virtual-text',
       'williamboman/mason.nvim',
       'jay-babu/mason-nvim-dap.nvim',
+      'nvim-telescope/telescope-dap.nvim',
 
       -- Add your own debuggers here
       'leoluz/nvim-dap-go',
@@ -16,6 +17,7 @@ return {
     config = function()
       local dap = require 'dap'
       local dapui = require 'dapui'
+      require('telescope').load_extension 'dap'
 
       require('mason-nvim-dap').setup {
         -- Makes a best effort to setup the various debuggers with

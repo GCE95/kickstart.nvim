@@ -253,10 +253,10 @@ require('lazy').setup { -- NOTE: Plugins can be added with a link (or for a gith
   --  This is equivalent to:
   --    require('Comment').setup({})
   -- "gc" to comment visual regions/lines
-  {
-    'numToStr/Comment.nvim',
-    opts = {},
-  }, -- Here is a more advanced example where we pass configuration
+  -- {
+  --   'numToStr/Comment.nvim',
+  --   opts = {},
+  -- }, -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following lua:
   --    require('gitsigns').setup({ ... })
   --
@@ -880,7 +880,7 @@ require('lazy').setup { -- NOTE: Plugins can be added with a link (or for a gith
       -- cursor information because line numbers are already enabled
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function()
-        return ''
+        return '%2l:%-2v'
       end
 
       -- ... and there is more!
