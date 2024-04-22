@@ -9,11 +9,12 @@ return {
 		priority = 1000,
 		config = function()
 			vim.g.gruvbox_material_foreground = 'hard'
+			require('onedark').setup { style = 'dark' }
 			vim.cmd.colorscheme 'catppuccin'
 		end,
 	},
 
-	-- Alpha Dashboard
+	-- -- Alpha Dashboard
 	{
 		'goolord/alpha-nvim',
 		dependencies = { 'MaximilianLloyd/ascii.nvim' },

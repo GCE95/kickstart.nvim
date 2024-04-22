@@ -9,6 +9,7 @@ return {
 			'theHamsta/nvim-dap-virtual-text',
 			'williamboman/mason.nvim',
 			'jay-babu/mason-nvim-dap.nvim',
+			'nvim-neotest/nvim-nio',
 
 			-- Add your own debuggers here
 			'mfussenegger/nvim-dap-python',
@@ -50,7 +51,7 @@ return {
 				dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
 			end, { desc = 'Debug: Set Breakpoint' })
 			vim.keymap.set('n', '<leader>dl', function()
-				require('dap.ext.vscode').load_launchjs()
+				require('dap.ext.vscode').load_launchjs('.vscode/launch.json', { debugpy = { 'python' } })
 			end, { desc = 'Load VSCode Launch' })
 
 			-- Dap UI setup
