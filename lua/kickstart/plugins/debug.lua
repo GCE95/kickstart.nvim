@@ -106,10 +106,20 @@ return {
 						},
 						program = '${fileDirname}',
 					},
+					{
+						type = 'go',
+						name = 'MNS Dev',
+						request = 'launch',
+						mode = 'debug',
+						env = {
+							STAGE_NAME = 'dev',
+						},
+						program = '${fileDirname}',
+					},
 				},
 			}
 			-- Install python specific config
-			require('dap-python').setup 'python'
+			require('dap-python').setup()
 			require('telescope').load_extension 'dap'
 			-- stylua: ignore
 			vim.keymap.set('n', '<leader>dPt', ':lua require("dap-python").test_method()<CR>',
