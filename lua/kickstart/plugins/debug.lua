@@ -119,7 +119,8 @@ return {
 				},
 			}
 			-- Install python specific config
-			require('dap-python').setup()
+			local path = require('mason-registry').get_package('debugpy'):get_install_path()
+			require('dap-python').setup(path .. '/venv/bin/python')
 			require('telescope').load_extension 'dap'
 			-- stylua: ignore
 			vim.keymap.set('n', '<leader>dPt', ':lua require("dap-python").test_method()<CR>',
