@@ -42,6 +42,10 @@ require('lazy').setup({
       },
       'folke/neodev.nvim',
     },
+    opts = {
+      inlay_hints = { enabed = true },
+      codelens = { enabed = true },
+    },
   },
   {
     -- Autocompletion
@@ -789,8 +793,6 @@ cmp.setup {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif require('copilot.suggestion').is_visible() then
-        require('copilot.suggestion').accept()
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       else
@@ -822,6 +824,10 @@ cmp.setup {
     },
     {
       name = 'path',
+      group_index = 1,
+    },
+    {
+      name = 'vim-dadbod-completion',
       group_index = 1,
     },
   },

@@ -20,6 +20,7 @@ vim.keymap.set('n', '<leader>ut', '<cmd>UndotreeToggle<CR>', { desc = 'Undo Tree
 vim.keymap.set('n', '<leader>cp', '<cmd>Gitsigns preview_hunk<CR>', { desc = 'Git Preview Hunk' })
 vim.keymap.set('n', '<leader>cn', '<cmd>Gitsigns next_hunk<CR>', { desc = 'Git Next Hunk' })
 vim.keymap.set('n', '<leader>cl', '<cmd>Gitsigns prev_hunk<CR>', { desc = 'Git Previous Hunk' })
+vim.keymap.set('n', '<leader>vd', '<cmd>DBUIToggle<CR>', { desc = 'DBUIToggle' })
 -- Telescope
 vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<CR>', { desc = '[G]it [S]tatus' })
 vim.keymap.set('n', '<leader>gd', '<cmd>Telescope git_commits<CR>', { desc = '[G]it [C]ommits' })

@@ -2,13 +2,11 @@ return {
 
 	-- colorscheme
 	{ 'navarasu/onedark.nvim' },
-	{ 'tiagovla/tokyodark.nvim' },
-	{ 'sainnhe/gruvbox-material' },
+	{ 'folke/tokyonight.nvim' },
 	{
 		'catppuccin/nvim',
 		priority = 1000,
 		config = function()
-			vim.g.gruvbox_material_foreground = 'hard'
 			require('onedark').setup { style = 'dark' }
 			vim.cmd.colorscheme 'catppuccin'
 		end,

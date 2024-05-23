@@ -37,7 +37,7 @@ return {
 				},
 			}
 			require('nvim-dap-virtual-text').setup()
-			require('dap.ext.vscode').load_launchjs()
+			-- require('dap.ext.vscode').load_launchjs()
 
 			-- Basic debugging keymaps, feel free to change to your liking!
 			vim.keymap.set('n', '<leader>dc', dap.continue, { desc = 'Debug: Start/Continue' })
@@ -116,11 +116,68 @@ return {
 						},
 						program = '${fileDirname}',
 					},
+
+					{
+						type = 'go',
+						name = 'MNS Prod',
+						request = 'launch',
+						mode = 'debug',
+						env = {
+							STAGE_NAME = 'prod',
+						},
+						program = '${fileDirname}',
+					},
 				},
 			}
 			-- Install python specific config
 			local path = require('mason-registry').get_package('debugpy'):get_install_path()
 			require('dap-python').setup(path .. '/venv/bin/python')
+			if string.find(vim.loop.cwd(), 'MNS') then
+				table.insert(require('dap').configurations.python, {
+					type = 'python',
+					name = 'MNS Prod',
+					request = 'launch',
+					mode = 'debug',
+					env = {
+						STAGE_NAME = 'prod',
+					},
+					program = vim.loop.cwd() .. '/mnspy/main.py',
+					cwd = vim.loop.cwd(),
+				})
+				table.insert(require('dap').configurations.python, {
+					type = 'python',
+					name = 'MNS L_Prod',
+					request = 'launch',
+					mode = 'debug',
+					env = {
+						STAGE_NAME = 'localprod',
+					},
+					program = vim.loop.cwd() .. '/mnspy/main.py',
+					cwd = vim.loop.cwd(),
+				})
+				table.insert(require('dap').configurations.python, {
+					type = 'python',
+					name = 'MNS L_Dev',
+					request = 'launch',
+					mode = 'debug',
+					env = {
+						STAGE_NAME = 'localdev',
+					},
+					program = vim.loop.cwd() .. '/mnspy/main.py',
+					cwd = vim.loop.cwd(),
+				})
+				table.insert(require('dap').configurations.python, {
+					type = 'python',
+					name = 'MNS Dev',
+					request = 'launch',
+					mode = 'debug',
+					env = {
+						STAGE_NAME = 'dev',
+					},
+					program = vim.loop.cwd() .. '/mnspy/main.py',
+					cwd = vim.loop.cwd(),
+				})
+			end
 			require('telescope').load_extension 'dap'
 			-- stylua: ignore
 			vim.keymap.set('n', '<leader>dPt', ':lua require("dap-python").test_method()<CR>',
