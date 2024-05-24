@@ -14,23 +14,6 @@ return {
 		config = true,
 	},
 
-	{
-		'ThePrimeagen/git-worktree.nvim',
-		config = function()
-			require('telescope').load_extension 'git_worktree'
-		end,
-	},
-	{
-		'pwntester/octo.nvim',
-		requires = {
-			'nvim-lua/plenary.nvim',
-			'nvim-telescope/telescope.nvim',
-			'nvim-tree/nvim-web-devicons',
-		},
-		config = function()
-			require('octo').setup()
-		end,
-	},
 	-- -- Copilot
 	-- {
 	-- 	'zbirenbaum/copilot.lua',
