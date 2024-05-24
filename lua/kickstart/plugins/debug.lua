@@ -7,6 +7,12 @@ return {
 			'theHamsta/nvim-dap-virtual-text',
 			'williamboman/mason.nvim',
 			'jay-babu/mason-nvim-dap.nvim',
+    -- Required dependency for nvim-dap-ui
+    'nvim-neotest/nvim-nio',
+
+    -- Installs the debug adapters for you
+    'williamboman/mason.nvim',
+    'jay-babu/mason-nvim-dap.nvim',
 
 			-- Add your own debuggers here
 			'leoluz/nvim-dap-go',
@@ -20,6 +26,10 @@ return {
 				-- Makes a best effort to setup the various debuggers with
 				-- reasonable debug configurations
 				automatic_setup = true,
+    require('mason-nvim-dap').setup {
+      -- Makes a best effort to setup the various debuggers with
+      -- reasonable debug configurations
+      automatic_installation = true,
 
 				-- You can provide additional configuration to the handlers,
 				-- see mason-nvim-dap README for more information
