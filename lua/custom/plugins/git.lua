@@ -3,6 +3,7 @@ return {
   -- Neogit
   {
     'NeogitOrg/neogit',
+    version = '0.0.1',
     event = 'VeryLazy',
     dependencies = {
       'nvim-lua/plenary.nvim', -- required
