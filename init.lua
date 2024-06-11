@@ -193,7 +193,7 @@ require('lazy').setup({
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
-    dependencies = { 'AndreM222/copilot-lualine' },
+    -- dependencies = { 'AndreM222/copilot-lualine' },
     opts = {
       options = {
         icons_enabled = true,
@@ -203,7 +203,8 @@ require('lazy').setup({
       },
       sections = {
         lualine_x = {
-          { 'copilot', 'encoding', 'fileformat', 'filetype' },
+          -- { 'copilot', 'encoding', 'fileformat', 'filetype' },
+          { 'encoding', 'fileformat', 'filetype' },
           {
             function()
               return '  ' .. require('dap').status()

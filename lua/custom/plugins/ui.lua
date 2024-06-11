@@ -13,7 +13,7 @@ return {
 			vim.g.gruvbox_material_diagnostic_text_highlight = 1
 			vim.g.gruvbox_material_diagnostic_virtual_text = 'highlighted'
 			require('onedark').setup { style = 'dark' }
-			vim.cmd.colorscheme 'gruvbox-material'
+			vim.cmd.colorscheme 'catppuccin'
 		end,
 	},
 
