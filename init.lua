@@ -203,8 +203,7 @@ require('lazy').setup({
       },
       sections = {
         lualine_x = {
-          -- { 'copilot', 'encoding', 'fileformat', 'filetype' },
-          { 'encoding', 'fileformat', 'filetype' },
+          { 'copilot', 'encoding', 'fileformat', 'filetype' },
           {
             function()
               return '  ' .. require('dap').status()
