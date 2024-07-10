@@ -193,7 +193,7 @@ require('lazy').setup({
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
-    -- dependencies = { 'AndreM222/copilot-lualine' },
+    dependencies = { 'AndreM222/copilot-lualine' },
     opts = {
       options = {
         icons_enabled = true,
@@ -203,7 +203,8 @@ require('lazy').setup({
       },
       sections = {
         lualine_x = {
-          { 'copilot', 'encoding', 'fileformat', 'filetype' },
+          -- { 'copilot', 'encoding', 'fileformat', 'filetype' },
+          { 'encoding', 'fileformat', 'filetype' },
           {
             function()
               return '  ' .. require('dap').status()
@@ -726,7 +727,7 @@ local servers = {
         enable = false,
       },
       -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-      -- diagnostics = { disable = { 'missing-fields' } },
+      diagnostics = { disable = { 'missing-fields' } },
     },
   },
   jsonls = {
@@ -793,6 +794,8 @@ cmp.setup {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif require('copilot.suggestion').is_visible() then
+        require('copilot.suggestion').accept()
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       else
@@ -818,10 +821,10 @@ cmp.setup {
       name = 'luasnip',
       group_index = 1,
     },
-    {
-      name = 'copilot',
-      group_index = 1,
-    },
+    -- {
+    --   name = 'copilot',
+    --   group_index = 1,
+    -- },
     {
       name = 'path',
       group_index = 1,

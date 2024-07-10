@@ -6,6 +6,7 @@ opt.shiftround = true
 
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>cf', '<cmd>lua vim.lsp.buf.format {async=true}<CR>', { desc = 'Code Format' })
+vim.keymap.set('n', '<leader>fp', '<cmd>!prettier % --write<CR>', { desc = 'Format Prettier' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u', '<C-u>zz')
 -- Better indent
