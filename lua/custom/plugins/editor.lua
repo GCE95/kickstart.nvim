@@ -33,7 +33,7 @@ return {
 				formatters_by_ft = {
 					lua = { 'stylua' },
 					-- Conform will run multiple formatters sequentially
-					-- python = { 'ruff_format' },
+					python = { 'ruff_format' },
 					markdown = { 'prettierd' },
 					go = { 'gofumpt', 'goimports' },
 					javascript = { 'prettier' },

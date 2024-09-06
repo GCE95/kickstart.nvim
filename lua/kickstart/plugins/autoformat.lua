@@ -55,18 +55,18 @@ return {
 					return
 				end
 
-				if client.name == 'ruff_lsp' then
-					vim.api.nvim_create_autocmd('BufWritePre', {
-						buffer = buffer,
-						callback = function()
-							vim.lsp.buf.code_action {
-								context = { only = { 'source.organizeImports' } },
-								apply = true,
-							}
-							-- vim.wait(100)
-						end,
-					})
-				end
+				-- if client.name == 'ruff_lsp' then
+				-- 	vim.api.nvim_create_autocmd('BufWritePre', {
+				-- 		buffer = buffer,
+				-- 		callback = function()
+				-- 			vim.lsp.buf.code_action {
+				-- 				context = { only = { 'source.organizeImports' } },
+				-- 				apply = true,
+				-- 			}
+				-- 			-- vim.wait(100)
+				-- 		end,
+				-- 	})
+				-- end
 				-- Create an autocmd that will run *before* we save the buffer.
 				--  Run the formatting command for the LSP that has just attached.
 				vim.api.nvim_create_autocmd('BufWritePre', {

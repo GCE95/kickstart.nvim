@@ -3,16 +3,12 @@ return {
 	-- colorscheme
 	{ 'navarasu/onedark.nvim' },
 	{ 'sainnhe/gruvbox-material' },
+	{ 'Shatur/neovim-ayu' },
 	{
 		'catppuccin/nvim',
 		priority = 1000,
 		config = function()
-			vim.g.gruvbox_material_background = 'hard'
-			vim.g.gruvbox_material_foreground = 'original'
-			vim.g.gruvbox_material_diagnostic_line_highlight = 1
-			vim.g.gruvbox_material_diagnostic_text_highlight = 1
-			vim.g.gruvbox_material_diagnostic_virtual_text = 'highlighted'
-			require('onedark').setup { style = 'dark' }
+			-- require('onedark').setup { style = 'dark' }
 			vim.cmd.colorscheme 'catppuccin'
 		end,
 	},
@@ -117,8 +113,8 @@ return {
 	},
 	{
 		'folke/trouble.nvim',
-		config = true,
 		opts = {}, -- for default options, refer to the configuration section for custom setup.
+		cmd = 'Trouble',
 		keys = {
 			{
 				'<leader>xx',

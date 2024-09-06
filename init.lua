@@ -57,10 +57,24 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
       'hrsh7th/cmp-path',
     },
-  }, -- Useful plugin to show you pending keybinds.
-  {
+  },
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
-    opts = {},
+    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
+    config = function() -- This is the function that runs, AFTER loading
+      require('which-key').setup()
+
+      -- Document existing key chains
+      require('which-key').add {
+        { '<leader>c', group = '[C]ode' },
+        { '<leader>d', group = '[D]ocument' },
+        { '<leader>r', group = '[R]ename' },
+        { '<leader>s', group = '[S]earch' },
+        { '<leader>w', group = '[W]orkspace' },
+        { '<leader>t', group = '[T]oggle' },
+        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      }
+    end,
   },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -203,8 +217,8 @@ require('lazy').setup({
       },
       sections = {
         lualine_x = {
-          -- { 'copilot', 'encoding', 'fileformat', 'filetype' },
-          { 'encoding', 'fileformat', 'filetype' },
+          { 'copilot', 'encoding', 'fileformat', 'filetype' },
+          -- { 'encoding', 'fileformat', 'filetype' },
           {
             function()
               return '  ' .. require('dap').status()
@@ -612,52 +626,6 @@ local on_attach = function(_, bufnr)
   })
 end
 
--- document existing key chains
-require('which-key').register {
-  ['<leader>c'] = {
-    name = '[C]ode',
-    _ = 'which_key_ignore',
-  },
-  ['<leader>d'] = {
-    name = '[D]ocument',
-    _ = 'which_key_ignore',
-  },
-  ['<leader>g'] = {
-    name = '[G]it',
-    _ = 'which_key_ignore',
-  },
-  ['<leader>h'] = {
-    name = 'More git',
-    _ = 'which_key_ignore',
-  },
-  ['<leader>r'] = {
-    name = '[R]ename',
-    _ = 'which_key_ignore',
-  },
-  ['<leader>s'] = {
-    name = '[S]earch',
-    _ = 'which_key_ignore',
-  },
-  ['<leader>t'] = {
-    name = '[T]oggle',
-    _ = 'which_key_ignore',
-  },
-  ['<leader>w'] = {
-    name = '[W]orkspace',
-    _ = 'which_key_ignore',
-  },
-}
--- register which-key VISUAL mode
--- required for visual <leader>hs (hunk stage) to work
-require('which-key').register({
-  ['<leader>'] = {
-    name = 'VISUAL <leader>',
-  },
-  ['<leader>h'] = { 'Git [H]unk' },
-}, {
-  mode = 'v',
-})
-
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
 require('mason').setup()
@@ -794,8 +762,8 @@ cmp.setup {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif require('copilot.suggestion').is_visible() then
-        require('copilot.suggestion').accept()
+        -- elseif require('copilot.suggestion').is_visible() then
+        --   require('copilot.suggestion').accept()
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       else
