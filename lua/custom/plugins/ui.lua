@@ -3,7 +3,6 @@ return {
 	-- colorscheme
 	{ 'navarasu/onedark.nvim' },
 	{ 'sainnhe/gruvbox-material' },
-	{ 'Shatur/neovim-ayu' },
 	{
 		'catppuccin/nvim',
 		priority = 1000,
