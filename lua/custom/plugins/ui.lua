@@ -1,5 +1,31 @@
 return {
-
+  {
+    -- Set lualine as statusline
+    'nvim-lualine/lualine.nvim',
+    -- See `:help lualine.txt`
+    opts = {
+      options = {
+        icons_enabled = true,
+        theme = 'auto',
+        component_separators = '|',
+        section_separators = '',
+      },
+      sections = {
+        lualine_x = {
+          { 'encoding', 'fileformat', 'filetype' },
+          -- { 'encoding', 'fileformat', 'filetype' },
+          {
+            function()
+              return '  ' .. require('dap').status()
+            end,
+            cond = function()
+              return package.loaded['dap'] and require('dap').status() ~= ''
+            end,
+          },
+        },
+      },
+    },
+  },
   -- colorscheme
   { 'navarasu/onedark.nvim' },
   { 'sainnhe/gruvbox-material' },

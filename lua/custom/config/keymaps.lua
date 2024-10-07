@@ -13,6 +13,8 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 -- Plugins
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<CR>')
+-- Handle large json files that cause a failure to format through the
+vim.keymap.set('n', '<leader>pf', '<cmd>%!prettier % <CR>')
 vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit all' })
 vim.keymap.set('n', '<leader>cc', '<cmd>Telescope colorscheme<CR>', { desc = 'Colorscheme' })
 vim.keymap.set('n', '<leader>ut', '<cmd>UndotreeToggle<CR>', { desc = 'Undo Tree' })
