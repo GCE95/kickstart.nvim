@@ -839,8 +839,6 @@ require('lazy').setup({
     'echasnovski/mini.nvim',
     config = function()
       require('mini.ai').setup { n_lines = 500 }
-<<<<<<< Updated upstream
-=======
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
@@ -866,7 +864,6 @@ require('lazy').setup({
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
->>>>>>> Stashed changes
     end,
   },
   {

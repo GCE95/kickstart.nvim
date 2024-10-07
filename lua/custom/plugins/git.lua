@@ -3,11 +3,7 @@ return {
   -- Neogit
   {
     'NeogitOrg/neogit',
-<<<<<<< Updated upstream
-    version = 'nightly',
-=======
     version = '*',
->>>>>>> Stashed changes
     event = 'VeryLazy',
     dependencies = {
       'nvim-lua/plenary.nvim', -- required
