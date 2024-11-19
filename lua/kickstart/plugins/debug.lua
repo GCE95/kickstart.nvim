@@ -94,7 +94,7 @@ return {
             env = {
               STAGE_NAME = 'localdev',
             },
-            program = '${fileDirname}',
+            program = vim.loop.cwd() .. '/mnsgo/main.go',
           },
           {
             type = 'go',
@@ -103,27 +103,6 @@ return {
             mode = 'debug',
             env = {
               STAGE_NAME = 'localprod',
-            },
-            program = '${fileDirname}',
-          },
-          {
-            type = 'go',
-            name = 'MNS Dev',
-            request = 'launch',
-            mode = 'debug',
-            env = {
-              STAGE_NAME = 'dev',
-            },
-            program = '${fileDirname}',
-          },
-
-          {
-            type = 'go',
-            name = 'MNS Prod',
-            request = 'launch',
-            mode = 'debug',
-            env = {
-              STAGE_NAME = 'prod',
             },
             program = '${fileDirname}',
           },
