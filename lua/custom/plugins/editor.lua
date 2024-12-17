@@ -37,7 +37,7 @@ return {
 					markdown = { 'prettierd' },
 					go = { 'gofumpt', 'goimports' },
 					javascript = { 'prettier' },
-					-- javascript = { 'prettierd' },
+					json = { 'prettierd' }
 				},
 			}
 		end,
