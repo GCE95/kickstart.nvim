@@ -586,7 +586,6 @@ require('lazy').setup({
                 rangeVariableTypes = true,
               },
               analyses = {
-                fieldalignment = true,
                 nilness = true,
                 unusedparams = true,
                 unusedwrite = true,
@@ -601,7 +600,7 @@ require('lazy').setup({
           },
         },
         pyright = {},
-        ruff_lsp = {
+        ruff = {
           ruff_lsp = {
             hoverProvider = false,
           },
